@@ -6,9 +6,14 @@
 
 int main()
 {
-	std::cout << " N  N^2  N^3\n";
-	for (int i = 1; i != 21; i++i)
+	std::cout << " N  N^2 N^3\n";
+	for (int i = 1; i != 21; i++)
 	{
 		//fill in the loop body here
+		std::cout << " " 
+		<< std::setw(4) << std::left << i 
+		<< std::setw(4) << std::left << i*i 
+		<< std::setw(4) << std::left << i*i*i 
+		<< std::endl;
 	}
 }
