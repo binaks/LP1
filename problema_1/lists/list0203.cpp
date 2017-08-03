@@ -4,9 +4,9 @@
 #include <limits>
 #include <ostream>
 
-int maind()
+int main()
 {
 	//Note that "digits" means binary digits, i.e., bits.
 	std::cout << "bits per bool: " << std::numeric_limits<bool>::digits << '\n';
-	//std::cout << "not quoted; \"in quotes\", not quoted";
+	std::cout << "not quoted; \"in quotes\", not quoted";
 }
