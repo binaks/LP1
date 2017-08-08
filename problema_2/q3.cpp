@@ -1,10 +1,13 @@
-
 #include <iostream>
+using namespace std;
 
-int main()
+int main(int argc, char const *argv[])
 {
-    cout << "Hello world";
-
-
-   return 0;
+	int n;
+	cout<<"Informe o valor de n: ";
+	cin>>n;
+	cout<<"Fatorial("<<n") = "<<fatorial(n)<<endl;
+	
+	return 0;
 }
+
