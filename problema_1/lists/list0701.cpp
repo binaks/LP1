@@ -1,10 +1,14 @@
-/** @file list0701.cpp */
-/** Listing 7-1. Using a for Loop to Print Ten Non-negative Numbers */
+list701.cpp
 #include <iostream>
 #include <ostream>
 
 int main()
 {
-	for (int i(0); i != 10; i + 1)
-		
+    int sum(0);
+
+    for(int i = 10; i != 21; i++){
+        sum = sum + i;
+    }
+
+    std::cout << "Sum of 10 to 20 = " << sum << '\n';
 }
