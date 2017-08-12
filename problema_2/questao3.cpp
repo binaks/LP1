@@ -8,7 +8,7 @@ int fatorial_verboso (string phrase, int n);
 
 int main (int argc, char *argv[]) {
 	int n;
-	int c;
+	string c;
 
 	switch (argc) {
 		case 1:
@@ -72,5 +72,5 @@ int main (int argc, char *argv[]) {
 			return n * fatorial_verboso (phrase, n - 1);
 		}
 	}
-
+ 
 }
