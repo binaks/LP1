@@ -14,10 +14,10 @@ int main (int argc, char *argv[]) {
 		case 1:
 			cout << "Informe o valor de n: ";
 			cin >> n;
-			cout << "Modo verboso? (s/n)";
+			cout << "Modo verboso? (s/n) ";
 			cin >> c;
 
-			if (c == 's') {
+			if (c.compare("s") == 0) {
 				cout << fatorial_verboso ("", n) << endl;
 			} else {
 				cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
@@ -27,10 +27,10 @@ int main (int argc, char *argv[]) {
 
 		case 2:
 			n = stoi (argv[1]);
-			cout << "Modo verboso? (s/n)";
+			cout << "Modo verboso? (s/n) ";
 			cin >> c;
 
-			if (c == 's') {
+			if (c.compare("s") == 0) {
 				cout << fatorial_verboso ("", n) << endl;
 			} else {
 				cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
@@ -44,6 +44,8 @@ int main (int argc, char *argv[]) {
 
 			if (c.compare("s") == 0) {
 				cout << fatorial_verboso ("", n) << endl;
+			} else {
+				cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
 			}
 
 			break;
@@ -54,15 +56,17 @@ int main (int argc, char *argv[]) {
 			return EXIT_FAILURE;
 	}
 
-	int fatorial (int n) {
+}
+
+int fatorial (int n) {
 		if (n == 1 || n == 0) {
 			return 1;
 		} else {
 			return fatorial (n - 1) * n;
 		}
-	}
+}
 
-	int fatorial_verboso (string phrase, int n) {
+int fatorial_verboso (string phrase, int n) {
 		if (n == 0) {
 			cout << phrase << "1\n";
 			return 1;
@@ -71,6 +75,6 @@ int main (int argc, char *argv[]) {
 			cout << phrase << "fatorial(" << (n - 1) << ")\n";
 			return n * fatorial_verboso (phrase, n - 1);
 		}
-	}
- 
 }
+
+
