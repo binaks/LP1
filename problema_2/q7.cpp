@@ -1,35 +1,66 @@
-// | (• ◡•)| (❍ᴥ❍ʋ)
-
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int fatorial(int n);
-int fatorial_verboso(std::string phrase, int n);
+int fatorial (bool verboso, string phrase, int n);
 
-int main(int argc, char const *argv[])
-{
+int main (int argc, char *argv[]) {
 	int n;
-	char c;
-	cout<<"Informe o valor de n: ";
-	cin>>n;
-	cout << "Modo verboso(s/n)?";
-	cin>>c;
+	string c;
+	bool verboso = false;
 
-	if(c == 's')
-		cout<< fatorial_verboso("", n) << endl;
-	else
-		cout<<"Fatorial("<<n<<") = "<<fatorial(n)<<endl;
+	switch (argc) {
+		case 1:
+			cout << "Informe o valor de n: ";
+			cin >> n;
+			cout << "Modo verboso? (s/n) ";
+			cin >> c;
+
+			if (c.compare("s") == 0) {
+				verboso = true;
+			} 
+			
+			cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
+
+			break;
+
+		case 2:
+			n = stoi (argv[1]);
+			cout << "Modo verboso? (s/n) ";
+			cin >> c;
+
+			if (c.compare("s") == 0) {
+				verboso = true;
+			}
+
+			cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
+			
+			break;
+
+		case 3:
+			n = stoi(argv[1]);
+			c.assign(argv[2]);
+
+			if (c.compare("s") == 0) {
+				cout << fatorial (verboso, "", n) << endl;
+			} 
+
+			cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
+
+			break;
+
+		default:
+			cout << "Numero de argumentos invalido!" << endl;
 	
-	return 0;
+			return EXIT_FAILURE;
+	}
+
 }
 
 int fatorial(int n){
-	if(n==1 || n==0){
-		return 1;
-	}
-	else{
-		return fatorial(n-1)*n;
-	}
+    cout << "Fatorial("<<n<<") = " << "FatorialIter("<<n<<", "<<1<<")\n";
+	return fatorial(n, 1); 
 }
 
 int fatorialIter(int n, int result){
@@ -37,19 +68,7 @@ int fatorialIter(int n, int result){
 		return result;
 	}
 	else{
-		return fatorial(n-1, result*n);
+        cout << "= Fatorial("<<n-<<", "<<n<<" * "<<result<<")\n";
+		return fatorialIter(n-1, result*n);
 	}
-}
-
-int fatorial_verboso(string phrase, int n){
-	if(n == 0){
-		cout << phrase << "1\n";
-		return 1;
-	}
-	else{
-		phrase = phrase + std::to_string(n) + " * ";
-		cout << phrase << "fatorial(" << (n-1) << ")\n";
-		return n * fatorial_verboso(phrase, n-1);
-	}
-	
 }
