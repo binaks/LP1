@@ -15,5 +15,5 @@ int main( )
 {
 	int x{10};
 	long y{20};
-	std::cout << my_min(x, y) << std::endl;
+	std::cout << my_min(x, (int) y) << std::endl;
 }
