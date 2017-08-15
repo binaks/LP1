@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int fatorial (bool verboso, string phrase, int n);
+int fatorial(int n);
+int fatorialIter(int n, int result);
 
 int main (int argc, char *argv[]) {
 	int n;
@@ -43,7 +44,7 @@ int main (int argc, char *argv[]) {
 			c.assign(argv[2]);
 
 			if (c.compare("s") == 0) {
-				cout << fatorial (verboso, "", n) << endl;
+				cout << fatorial(n) << endl;
 			} 
 
 			cout << "Fatorial(" << n << ") = " << fatorial(n) << endl;
@@ -60,7 +61,7 @@ int main (int argc, char *argv[]) {
 
 int fatorial(int n){
     cout << "Fatorial("<<n<<") = " << "FatorialIter("<<n<<", "<<1<<")\n";
-	return fatorial(n, 1); 
+	return fatorialIter(n, 1); 
 }
 
 int fatorialIter(int n, int result){
@@ -68,7 +69,7 @@ int fatorialIter(int n, int result){
 		return result;
 	}
 	else{
-        cout << "= Fatorial("<<n-<<", "<<n<<" * "<<result<<")\n";
+        cout << "= FatorialIter("<<n-1<<", "<<n<<" * "<<result<<")\n";
 		return fatorialIter(n-1, result*n);
 	}
 }
