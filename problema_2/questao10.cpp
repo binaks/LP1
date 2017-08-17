@@ -15,15 +15,17 @@ int main () {
 }
 
 int fib (int n) {
-		return fibDupla (n, 1, 1);
+	if (n == 0) {
+		return 0;
+	} else {
+		return fibDupla (n, 0, 1);
+	}
 } 
 
 int fibDupla (int n, int a, int b) {
-	if (n <= 1) {
-		return n;
-	} else if (n == 2) {
+	if (n == 1) {
 		return b;
 	} else {
-		return fibDupla(n - 1, b, a + b);
+		return fibDupla (n - 1, b, a + b);
 	}
 }
