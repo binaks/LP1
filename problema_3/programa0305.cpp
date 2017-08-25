@@ -21,9 +21,9 @@ void vector_free(Vector& v){
 }
 
 void vector_read(Vector& v){
-	cout<<"Digite os elementos de v: ";
 	for (int i = 0; i < v.tam; i++)
 	{
+		cout<<"Elemento ["<<i+1<<"]: ";
 		cin>>v.elementos[i];
 	}
 }
@@ -57,18 +57,18 @@ int main(int argc, char const *argv[])
 	int n{0}, chave{0};
 	Vector vetor;
 
-	cout<<"Digite o tamanho do vetor: ";
+	cout<<"Quantos elementos sua lista armazenara? ";
 	cin>>n;
 	vector_init(vetor,n);
 	vector_read(vetor);
-	cout<<"\nVetor lido: "; vector_print(vetor);
-	cout<<"\nSoma: "<<vector_sum(vetor);
-	cout<<"\nDigite o número buscado: ";
+	//cout<<"\nVetor lido: "; vector_print(vetor); //apenas para testes
+	cout<<"Soma dos elementos informados: "<<vector_sum(vetor);
+	cout<<"\nInforme chave de busca: ";
 	cin>>chave;
 	if(vector_find(vetor,chave)==true)
-		cout<<"Encontrado.";
+		cout<<"Chave localizada!";
 	else
-		cout<<"Não encontrado.";
+		cout<<"Chave nao localizada!";
 	vector_free(vetor);
 	return EXIT_SUCCESS;
 }
