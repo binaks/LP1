@@ -119,14 +119,17 @@ int main(int argc, char const *argv[])
 	matrix_mult(m1,m2,m3);
 	cout<<"\nM1:\n"; matrix_print(m1);
 	cout<<"M2:\n"; matrix_print(m2);
+	bool alocate = false;
 	if(matrix_mult(m1,m2,m3)==true){
 		cout<<"\nM3 = M1 x M2: \n";
 		matrix_print(m3);
+		alocate = true;
 	}
 
 	matrix_destructor(m1);
-	matrix_destructor(m2);
-	// matrix_destructor(m3);	//erro no destrutor do m3 WHAT THE HELL?! (perguntar para o professor)
+	matrix_destructor(m2); 
+	if(alocate)
+		matrix_destructor(m3);	
 
 	return 0;
 }
