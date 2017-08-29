@@ -4,8 +4,8 @@
 
 int main(int argc, char const *argv[])
 {
-	std::ifstream in("list1301.in");
-	std::ofstream out("list1301.out");
+	std::ifstream in("list1301.txt");
+	std::ofstream out("list1301out.txt");
 	if(not in)
 		std::perror("list1301.in");
 	else
@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
 		while(in>>x)
 			out<<x<<'\n';
 		in.close();
+		out.close();
 	}
 	return 0;
 }
