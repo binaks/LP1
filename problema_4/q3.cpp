@@ -1,5 +1,5 @@
-/∗∗ @file list3105.cpp ∗/
-/∗∗ Listing 31−5. Constructors for Class point ∗/
+/** @file list3105.cpp */
+/** Listing 31−5. Constructors for Class point */
 struct point
 {
 	point()
