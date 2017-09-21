@@ -5,22 +5,29 @@ struct point
 {
 public: 
 	point() : point(0.0,0.0) {}
-	point(double x, double y) : x_{x}, y_{y}, angle_{angle()}, r_{distance()} {}
+	point(double x, double y){
+		angle_ = std::atan2(y, x);
+		r_ = std::sqrt(x*x + y*y);
+	}
 	point(point const&) = default;
 	~point() {std::cout<<"~point"<<std::endl;}
 
-	double x() const {return x_;}
-	double y() const {return y_;}
+	double x() const {
+		return r_*std::cos(angle_);
+	}
+	double y() const {
+		return r_*std::sin(angle_);
+	}
 
-	double angle() const {return std::atan2(y(),x()); }
-	double distance() const	{return std::sqrt(x()*x() + y()*y());}
+	double angle() const {return angle_;}
+	double distance() const	{return r_;}
 
-	void move_cartesian(double angle, double r){
-		x_=x;
-		y_=y;
+	void move_cartesian(double x, double y){
+		move_polar(std::sqrt(x*x + y*y), std::atan2(y, x));
 	}
 	void move_polar(double r, double angle){
-		move_cartesian(r*std::cos(angle), r*std::sin(angle));
+		r_ = r;
+		angle_ = angle;
 	}
 	void scale_cartesian(double s) { scale_cartesian(s,s); }
 	void scale_cartesian (double xs, double ys){
@@ -32,8 +39,6 @@ public:
 	void offset(double xo, double yo) { move_cartesian(x()+xo,y()+yo);}
 
 private:
-	double x_;
-	double y_;
 	double angle_;
 	double r_;
 	
@@ -41,8 +46,4 @@ private:
 
 int main(){
 	point p1, p2;
-
-	point *p3 = new point();
-	delete p3;
-	p3 = nullptr;
 }
